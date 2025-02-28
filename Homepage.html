@@ -14,6 +14,184 @@
 
 <script>
 
+
+//  for weapons
+const characterWeapons = {
+    // Each character with their available weapons
+    'Minis/Abigail.png': ['Weapons/Beam Axe.png', 'Weapons/Santa Muerte.png', 'Weapons/Scythe.png', 'Weapons/Parashu.png', 'Weapons/Harpe.png'],
+    'Minis/Adela.png': ['Weapons/Sword of Justice.png', 'Weapons/Durendal Mk2.png', 'Weapons/Volticletto.png', 'Weapons/Red Panther.png', 'Weapons/Esprit.png', 'Weapons/Vajra.png', 'Weapons/Pakua Chang.png', 'Weapons/Statue of Soteria.png', 'Weapons/Mallet.png', 'Weapons/Spy Umbrella.png'],
+    'Minis/Adina.png': ['Weapons/The Hermit.png', 'Weapons/The Hierophant.png', 'Weapons/Temperance.png', 'Weapons/The Star.png'],
+    'Minis/Adrianna.png': ['Weapons/Ruthenium Marble.png', 'Weapons/Smoke Bomb.png', 'Weapons/Sticky Bomb.png', 'Weapons/Incendiary Bomb.png', 'Weapons/David\'s Sling.png'],
+    'Minis/Aiden.png': ['Weapons/Plasma Sword.png', 'Weapons/Thuan Thien.png', 'Weapons/Arondight.png', 'Weapons/Excalibur.png', 'Weapons/Monohoshizao.png', 'Weapons/Hovud.png', 'Weapons/Arcane Edge.png'] ,
+    'Minis/Alex.png': ['Weapons/Plasma Sword.png', 'Weapons/Thuan Thien.png', 'Weapons/Arondight.png', 'Weapons/Excalibur.png', 'Weapons/Monohoshizao.png', 'Weapons/Hovud.png', 'Weapons/Arcane Edge.png'] , // ['Weapons/Elegance.png', 'Weapons/Electron Blaster.png', 'Weapons/Magnum-Boa.png', 'Weapons/Glock 48.png', 'Weapons/Stampede.png'] //['Weapons/Cards of Tyranny.png', 'Weapons/Mystic Jade Charm.png', 'Weapons/Fuhma Shuriken.png', 'Weapons/Azure Dagger.png', 'Weapons/Flechette.png'] // ['Weapons/Tactical Tonfa.png', 'Weapons/Mai Sok.png', 'Weapons/Plasma Tonfa.png', 'Weapons/Holster Tonfa.png']
+    'Minis/Alonso.png': ['Weapons/One Inch Punch.png', 'Weapons/Divine Fist.png', 'Weapons/Bloodwing Knuckles.png', 'Weapons/Frost Petal Hand.png', 'Weapons/Buddha\'s Palm.png', 'Weapons/Brasil Gauntlet.png', 'Weapons/White Claw Punch.png'],
+    'Minis/Arda.png': ['Weapons/The Hermit.png', 'Weapons/The Hierophant.png', 'Weapons/Temperance.png', 'Weapons/The Star.png'],
+    'Minis/Aya.png':  ['Weapons/Elegance.png', 'Weapons/Electron Blaster.png', 'Weapons/Magnum-Boa.png', 'Weapons/Glock 48.png', 'Weapons/Stampede.png',  'Weapons/Type 95.png', 'Weapons/AK-12.png', 'Weapons/XCR.png', 'Weapons/Gold Rush.png', 'Weapons/Agni.png', 'Weapons/Tac-50.png', 'Weapons/NTW-20.png', 'Weapons/Polaris.png', 'Weapons/Gauss Rifle.png'],
+    'Minis/Barbara.png':  ['Weapons/Elegance.png', 'Weapons/Electron Blaster.png', 'Weapons/Magnum-Boa.png', 'Weapons/Glock 48.png', 'Weapons/Stampede.png'],
+    'Minis/Bernice.png': ['Weapons/Tac-50.png', 'Weapons/NTW-20.png', 'Weapons/Polaris.png', 'Weapons/Gauss Rifle.png'],
+    'Minis/Bianca.png': ['Weapons/The Hermit.png', 'Weapons/The Hierophant.png', 'Weapons/Temperance.png', 'Weapons/The Star.png'],
+    'Minis/Camillo.png': ['Weapons/Sword of Justice.png', 'Weapons/Durendal Mk2.png', 'Weapons/Volticletto.png', 'Weapons/Red Panther.png', 'Weapons/Esprit.png'],
+    'Minis/Cathy.png': ['Weapons/Carnwennan.png', 'Weapons/Mount Slicer.png', 'Weapons/Vibroblade.png', 'Weapons/Damscus Steel Thorn.png', 'Weapons/Maharaja.png', 'Weapons/Highlander Dirk.png', 'Weapons/Divine Dual Swords.png', 'Weapons/Asura.png', 'Weapons/Black Butterfly.png', 'Weapons/Dioscuri.png'],
+    'Minis/Celine.png': ['Weapons/Ruthenium Marble.png', 'Weapons/Smoke Bomb.png', 'Weapons/Sticky Bomb.png', 'Weapons/Incendiary Bomb.png', 'Weapons/David\'s Sling.png'],
+    'Minis/Charlotte.png': ['Weapons/The Hermit.png', 'Weapons/The Hierophant.png', 'Weapons/Temperance.png', 'Weapons/The Star.png'],
+    'Minis/Chiara.png': ['Weapons/Sword of Justice.png', 'Weapons/Durendal Mk2.png', 'Weapons/Volticletto.png', 'Weapons/Red Panther.png', 'Weapons/Esprit.png'],
+    'Minis/Chloe.png': ['Weapons/Cards of Tyranny.png', 'Weapons/Mystic Jade Charm.png', 'Weapons/Fuhma Shuriken.png', 'Weapons/Azure Dagger.png', 'Weapons/Flechette.png'],
+    'Minis/Daniel.png': ['Weapons/Carnwennan.png', 'Weapons/Mount Slicer.png', 'Weapons/Vibroblade.png', 'Weapons/Damscus Steel Thorn.png', 'Weapons/Maharaja.png', 'Weapons/Highlander Dirk.png'],
+    'Minis/Darko.png': ['Weapons/Vajra.png', 'Weapons/Pakua Chang.png', 'Weapons/Statue of Soteria.png', 'Weapons/Mallet.png', 'Weapons/Spy Umbrella.png'],
+    'Minis/DeMa.png': ['Weapons/Plasma Sword.png', 'Weapons/Thuan Thien.png', 'Weapons/Arondight.png', 'Weapons/Excalibur.png', 'Weapons/Monohoshizao.png', 'Weapons/Hovud.png', 'Weapons/Arcane Edge.png'] ,
+    'Minis/Echion.png': ['Weapons/Deathadder Queen.png', 'Weapons/Black Mamba King.png', 'Weapons/Alpha Sidewinder.png'],
+    'Minis/Elena.png': ['Weapons/Sword of Justice.png', 'Weapons/Durendal Mk2.png', 'Weapons/Volticletto.png', 'Weapons/Red Panther.png', 'Weapons/Esprit.png'],
+    'Minis/Eleven.png': ['Weapons/Fang Mace.png', 'Weapons/Hammer of Dagda.png', 'Weapons/Hammer of Thor.png', 'Weapons/Weight of the World.png', 'Weapons/Bookmaster.png'],
+    'Minis/Emma.png': ['Weapons/Cards of Tyranny.png', 'Weapons/Mystic Jade Charm.png', 'Weapons/Fuhma Shuriken.png', 'Weapons/Azure Dagger.png', 'Weapons/Flechette.png', 'Weapons/The Hermit.png', 'Weapons/The Hierophant.png', 'Weapons/Temperance.png', 'Weapons/The Star.png'],
+    'Minis/Estelle.png': ['Weapons/Beam Axe.png', 'Weapons/Santa Muerte.png', 'Weapons/Scythe.png', 'Weapons/Parashu.png', 'Weapons/Harpe.png'],
+    'Minis/Eva.png': ['Weapons/Ruthenium Marble.png', 'Weapons/Smoke Bomb.png', 'Weapons/Sticky Bomb.png', 'Weapons/Incendiary Bomb.png', 'Weapons/David\'s Sling.png'],
+    'Minis/Felix.png': ['Weapons/Eighteen Foot Spear.png', 'Weapons/Lance of Poseidon.png', 'Weapons/Fangtian Huaji.png', 'Weapons/Dragon Guandao.png'],
+    'Minis/Fiora.png': ['Weapons/Plasma Sword.png', 'Weapons/Thuan Thien.png', 'Weapons/Arondight.png', 'Weapons/Excalibur.png', 'Weapons/Monohoshizao.png', 'Weapons/Hovud.png', 'Weapons/Arcane Edge.png', 'Weapons/Sword of Justice.png', 'Weapons/Durendal Mk2.png', 'Weapons/Volticletto.png', 'Weapons/Red Panther.png', 'Weapons/Esprit.png', 'Weapons/Eighteen Foot Spear.png', 'Weapons/Lance of Poseidon.png', 'Weapons/Fangtian Huaji.png', 'Weapons/Dragon Guandao.png'] ,
+    'Minis/Garnet.png': ['Weapons/Vajra.png', 'Weapons/Pakua Chang.png', 'Weapons/Statue of Soteria.png', 'Weapons/Mallet.png', 'Weapons/Spy Umbrella.png'],
+    'Minis/Hart.png': ['Weapons/Bohemian.png', 'Weapons/Stairway to Heaven.png', 'Weapons/Purple Haze.png', 'Weapons/Satisfaction.png', 'Weapons/The Wall.png', 'Weapons/Teen Spirit.png'],
+    'Minis/Haze.png':  ['Weapons/Type 95.png', 'Weapons/AK-12.png', 'Weapons/XCR.png', 'Weapons/Gold Rush.png', 'Weapons/Agni.png'],
+    'Minis/Hisui.png': ['Weapons/Plasma Sword.png', 'Weapons/Thuan Thien.png', 'Weapons/Arondight.png', 'Weapons/Excalibur.png', 'Weapons/Monohoshizao.png', 'Weapons/Hovud.png', 'Weapons/Arcane Edge.png'] ,
+    'Minis/Hyejin.png': ['Weapons/Cards of Tyranny.png', 'Weapons/Mystic Jade Charm.png', 'Weapons/Fuhma Shuriken.png', 'Weapons/Azure Dagger.png', 'Weapons/Flechette.png', 'Weapons/Ancient Bolt.png', 'Weapons/Golden-Ratio Bow.png', 'Weapons/Twinbow.png', 'Weapons/Jebe\'s Altered Bow.png', 'Weapons/Elemental Bow.png'],
+    'Minis/Hyunwoo.png': ['Weapons/One Inch Punch.png', 'Weapons/Divine Fist.png', 'Weapons/Bloodwing Knuckles.png', 'Weapons/Frost Petal Hand.png', 'Weapons/Buddha\'s Palm.png', 'Weapons/Brasil Gauntlet.png', 'Weapons/White Claw Punch.png', 'Weapons/Tactical Tonfa.png', 'Weapons/Mai Sok.png', 'Weapons/Plasma Tonfa.png', 'Weapons/Holster Tonfa.png'],
+    'Minis/Irem.png': ['Weapons/Ruthenium Marble.png', 'Weapons/Smoke Bomb.png', 'Weapons/Sticky Bomb.png', 'Weapons/Incendiary Bomb.png', 'Weapons/David\'s Sling.png'],
+    'Minis/Isaac.png': ['Weapons/Tactical Tonfa.png', 'Weapons/Mai Sok.png', 'Weapons/Plasma Tonfa.png', 'Weapons/Holster Tonfa.png'],
+    'Minis/Isol.png':  ['Weapons/Elegance.png', 'Weapons/Electron Blaster.png', 'Weapons/Magnum-Boa.png', 'Weapons/Glock 48.png', 'Weapons/Stampede.png', 'Weapons/Type 95.png', 'Weapons/AK-12.png', 'Weapons/XCR.png', 'Weapons/Gold Rush.png', 'Weapons/Agni.png'],
+    'Minis/Jackie.png': ['Weapons/Carnwennan.png', 'Weapons/Mount Slicer.png', 'Weapons/Vibroblade.png', 'Weapons/Damscus Steel Thorn.png', 'Weapons/Maharaja.png', 'Weapons/Highlander Dirk.png', 'Weapons/Plasma Sword.png', 'Weapons/Thuan Thien.png', 'Weapons/Arondight.png', 'Weapons/Excalibur.png', 'Weapons/Monohoshizao.png', 'Weapons/Hovud.png', 'Weapons/Arcane Edge.png', 'Weapons/Divine Dual Swords.png', 'Weapons/Asura.png', 'Weapons/Black Butterfly.png', 'Weapons/.png'],
+    'Minis/Jan.png': ['Weapons/One Inch Punch.png', 'Weapons/Divine Fist.png', 'Weapons/Bloodwing Knuckles.png', 'Weapons/Frost Petal Hand.png', 'Weapons/Buddha\'s Palm.png', 'Weapons/Brasil Gauntlet.png', 'Weapons/White Claw Punch.png', 'Weapons/Tactical Tonfa.png', 'Weapons/Mai Sok.png', 'Weapons/Plasma Tonfa.png', 'Weapons/Holster Tonfa.png'],
+    'Minis/Jenny.png':  ['Weapons/Elegance.png', 'Weapons/Electron Blaster.png', 'Weapons/Magnum-Boa.png', 'Weapons/Glock 48.png', 'Weapons/Stampede.png'],
+    'Minis/Johann.png': ['Weapons/The Hermit.png', 'Weapons/The Hierophant.png', 'Weapons/Temperance.png', 'Weapons/The Star.png'],
+    'Minis/Justyna.png': ['Weapons/The Legend of The General.png', 'Weapons/Ballista.png', 'Weapons/Sniper Crossbow.png', 'Weapons/Poisoned Crossbow.png'],
+    'Minis/Karla.png': ['Weapons/The Legend of The General.png', 'Weapons/Ballista.png', 'Weapons/Sniper Crossbow.png', 'Weapons/Poisoned Crossbow.png'],
+    'Minis/Katja.png': ['Weapons/Tac-50.png', 'Weapons/NTW-20.png', 'Weapons/Polaris.png', 'Weapons/Gauss Rifle.png'],
+    'Minis/Kenneth.png': ['Weapons/Beam Axe.png', 'Weapons/Santa Muerte.png', 'Weapons/Scythe.png', 'Weapons/Parashu.png', 'Weapons/Harpe.png'],
+    'Minis/Laura.png':  ['Weapons/Thunder Whip.png', 'Weapons/Gleipnir.png', 'Weapons/Plasma Whip.png', 'Weapons/Cathode Lash.png'],
+    'Minis/Leni.png':  ['Weapons/Elegance.png', 'Weapons/Electron Blaster.png', 'Weapons/Magnum-Boa.png', 'Weapons/Glock 48.png', 'Weapons/Stampede.png'],
+    'Minis/Lenox.png':  ['Weapons/Thunder Whip.png', 'Weapons/Gleipnir.png', 'Weapons/Plasma Whip.png', 'Weapons/Cathode Lash.png'],
+    'Minis/Lenore.png': ['Weapons/Bohemian.png', 'Weapons/Stairway to Heaven.png', 'Weapons/Purple Haze.png', 'Weapons/Satisfaction.png', 'Weapons/The Wall.png', 'Weapons/Teen Spirit.png'],
+    'Minis/Leon.png': ['Weapons/One Inch Punch.png', 'Weapons/Divine Fist.png', 'Weapons/Bloodwing Knuckles.png', 'Weapons/Frost Petal Hand.png', 'Weapons/Buddha\'s Palm.png', 'Weapons/Brasil Gauntlet.png', 'Weapons/White Claw Punch.png', 'Weapons/Tactical Tonfa.png', 'Weapons/Mai Sok.png', 'Weapons/Plasma Tonfa.png', 'Weapons/Holster Tonfa.png'],
+    'Minis/Li Dailin.png': ['Weapons/One Inch Punch.png', 'Weapons/Divine Fist.png', 'Weapons/Bloodwing Knuckles.png', 'Weapons/Frost Petal Hand.png', 'Weapons/Buddha\'s Palm.png', 'Weapons/Brasil Gauntlet.png', 'Weapons/White Claw Punch.png', 'Weapons/Sharper.png', 'Weapons/The Smiting Dragon.png', 'Weapons/Vibro Nunchaku.png', 'Weapons/Blue 3.png'],
+    'Minis/Luke.png': ['Weapons/Vajra.png', 'Weapons/Pakua Chang.png', 'Weapons/Statue of Soteria.png', 'Weapons/Mallet.png', 'Weapons/Spy Umbrella.png'],
+    'Minis/Ly Anh.png': ['Weapons/Carnwennan.png', 'Weapons/Mount Slicer.png', 'Weapons/Vibroblade.png', 'Weapons/Damscus Steel Thorn.png', 'Weapons/Maharaja.png', 'Weapons/Highlander Dirk.png'],
+    'Minis/Magnus.png': ['Weapons/Fang Mace.png', 'Weapons/Hammer of Dagda.png', 'Weapons/Hammer of Thor.png', 'Weapons/Weight of the World.png', 'Weapons/Bookmaster.png', 'Weapons/Vajra.png', 'Weapons/Pakua Chang.png', 'Weapons/Statue of Soteria.png', 'Weapons/Mallet.png', 'Weapons/Spy Umbrella.png'],
+    'Minis/Mai.png':  ['Weapons/Thunder Whip.png', 'Weapons/Gleipnir.png', 'Weapons/Plasma Whip.png', 'Weapons/Cathode Lash.png'],
+    'Minis/Markus.png': ['Weapons/Beam Axe.png', 'Weapons/Santa Muerte.png', 'Weapons/Scythe.png', 'Weapons/Parashu.png', 'Weapons/Harpe.png', 'Weapons/Fang Mace.png', 'Weapons/Hammer of Dagda.png', 'Weapons/Hammer of Thor.png', 'Weapons/Weight of the World.png', 'Weapons/Bookmaster.png'],
+    'Minis/Martina.png': ['Weapons/Mirrorless', 'Weapons/Laser Designator', 'Weapons/V.I.C.G', 'Weapons/Instant Camera'],
+    'Minis/Nadine.png': ['Weapons/Ancient Bolt.png', 'Weapons/Golden-Ratio Bow.png', 'Weapons/Twinbow.png', 'Weapons/Jebe\'s Altered Bow.png', 'Weapons/Elemental Bow.png', 'Weapons/The Legend of The General.png', 'Weapons/Ballista.png', 'Weapons/Sniper Crossbow.png', 'Weapons/Poisoned Crossbow.png'],
+    'Minis/Nathapon.png': ['Weapons/Mirrorless', 'Weapons/Laser Designator', 'Weapons/V.I.C.G', 'Weapons/Instant Camera'],
+    'Minis/Nicky.png': ['Weapons/One Inch Punch.png', 'Weapons/Divine Fist.png', 'Weapons/Bloodwing Knuckles.png', 'Weapons/Frost Petal Hand.png', 'Weapons/Buddha\'s Palm.png', 'Weapons/Brasil Gauntlet.png', 'Weapons/White Claw Punch.png'],
+    'Minis/Piolo.png': ['Weapons/Sharper.png', 'Weapons/The Smiting Dragon.png', 'Weapons/Vibro Nunchaku.png', 'Weapons/Blue 3.png'],
+    'Minis/Priya.png': ['Weapons/Bohemian.png', 'Weapons/Stairway to Heaven.png', 'Weapons/Purple Haze.png', 'Weapons/Satisfaction.png', 'Weapons/The Wall.png', 'Weapons/Teen Spirit.png'],
+    'Minis/Rio.png': ['Weapons/Ancient Bolt.png', 'Weapons/Golden-Ratio Bow.png', 'Weapons/Twinbow.png', 'Weapons/Jebe\'s Altered Bow.png', 'Weapons/Elemental Bow.png'],
+    'Minis/Rozzi.png':  ['Weapons/Elegance.png', 'Weapons/Electron Blaster.png', 'Weapons/Magnum-Boa.png', 'Weapons/Glock 48.png', 'Weapons/Stampede.png'],
+    'Minis/Shiochi.png': ['Weapons/Carnwennan.png', 'Weapons/Mount Slicer.png', 'Weapons/Vibroblade.png', 'Weapons/Damscus Steel Thorn.png', 'Weapons/Maharaja.png', 'Weapons/Highlander Dirk.png'],
+    'Minis/Silvia.png':  ['Weapons/Elegance.png', 'Weapons/Electron Blaster.png', 'Weapons/Magnum-Boa.png', 'Weapons/Glock 48.png', 'Weapons/Stampede.png'],
+    'Minis/Sissela.png': ['Weapons/Ruthenium Marble.png', 'Weapons/Smoke Bomb.png', 'Weapons/Sticky Bomb.png', 'Weapons/Incendiary Bomb.png', 'Weapons/David\'s Sling.png', 'Weapons/Cards of Tyranny.png', 'Weapons/Mystic Jade Charm.png', 'Weapons/Fuhma Shuriken.png', 'Weapons/Azure Dagger.png', 'Weapons/Flechette.png'],
+    'Minis/Sua.png': ['Weapons/Fang Mace.png', 'Weapons/Hammer of Dagda.png', 'Weapons/Hammer of Thor.png', 'Weapons/Weight of the World.png', 'Weapons/Bookmaster.png', 'Weapons/Vajra.png', 'Weapons/Pakua Chang.png', 'Weapons/Statue of Soteria.png', 'Weapons/Mallet.png', 'Weapons/Spy Umbrella.png'],
+    'Minis/Tazia.png': ['Weapons/Cards of Tyranny.png', 'Weapons/Mystic Jade Charm.png', 'Weapons/Fuhma Shuriken.png', 'Weapons/Azure Dagger.png', 'Weapons/Flechette.png'],
+    'Minis/Theodore.png': ['Weapons/Tac-50.png', 'Weapons/NTW-20.png', 'Weapons/Polaris.png', 'Weapons/Gauss Rifle.png'],
+    'Minis/Tia.png': ['Weapons/Vajra.png', 'Weapons/Pakua Chang.png', 'Weapons/Statue of Soteria.png', 'Weapons/Mallet.png', 'Weapons/Spy Umbrella.png'],
+    'Minis/Tsubame.png': ['Weapons/Cards of Tyranny.png', 'Weapons/Mystic Jade Charm.png', 'Weapons/Fuhma Shuriken.png', 'Weapons/Azure Dagger.png', 'Weapons/Flechette.png'],
+    'Minis/Vanya.png': ['Weapons/The Hermit.png', 'Weapons/The Hierophant.png', 'Weapons/Temperance.png', 'Weapons/The Star.png'],
+    'Minis/William.png': ['Weapons/Ruthenium Marble.png', 'Weapons/Smoke Bomb.png', 'Weapons/Sticky Bomb.png', 'Weapons/Incendiary Bomb.png', 'Weapons/David\'s Sling.png'],
+    'Minis/Xuikai.png': ['Weapons/Carnwennan.png', 'Weapons/Mount Slicer.png', 'Weapons/Vibroblade.png', 'Weapons/Damscus Steel Thorn.png', 'Weapons/Maharaja.png', 'Weapons/Highlander Dirk.png', 'Weapons/Eighteen Foot Spear.png', 'Weapons/Lance of Poseidon.png', 'Weapons/Fangtian Huaji.png', 'Weapons/Dragon Guandao.png'],
+    'Minis/Yuki.png': ['Weapons/Plasma Sword.png', 'Weapons/Thuan Thien.png', 'Weapons/Arondight.png', 'Weapons/Excalibur.png', 'Weapons/Monohoshizao.png', 'Weapons/Hovud.png', 'Weapons/Arcane Edge.png', 'Weapons/Divine Dual Swords.png', 'Weapons/Asura.png', 'Weapons/Black Butterfly.png', 'Weapons/.png'] ,
+    'Minis/Yumin.png': ['Weapons/The Hermit.png', 'Weapons/The Hierophant.png', 'Weapons/Temperance.png', 'Weapons/The Star.png'],
+    'Minis/Zahir.png': ['Weapons/Ruthenium Marble.png', 'Weapons/Smoke Bomb.png', 'Weapons/Sticky Bomb.png', 'Weapons/Incendiary Bomb.png', 'Weapons/David\'s Sling.png', 'Weapons/Cards of Tyranny.png', 'Weapons/Mystic Jade Charm.png', 'Weapons/Fuhma Shuriken.png', 'Weapons/Azure Dagger.png', 'Weapons/Flechette.png']
+};
+
+// Variable to store the currently selected character
+let currentCharacter = null;
+
+
+
+// Function to select a random weapon for the chosen character
+function selectWeaponForCharacter(characterImg) {
+    // Get weapons for this character
+    const weaponsList = characterWeapons[characterImg];
+    
+    // If no weapons defined for this character, return
+    if (!weaponsList || weaponsList.length === 0) {
+        console.log('No weapons defined for character: ' + characterImg);
+        return;
+    }
+    
+    // Get a random weapon from the character's weapon list
+    const randomWeaponIndex = Math.floor(Math.random() * weaponsList.length);
+    const randomWeapon = weaponsList[randomWeaponIndex];
+    
+    // Get the weapon container element
+    const WeaponContainer = document.getElementById('WeaponContainer');
+    
+    // If container doesn't exist, create it
+    if (!WeaponContainer) {
+        console.log('Weapon container not found. Please add <div id="WeaponContainer"></div> to your HTML');
+        return;
+    }
+    
+    // Create an image element
+    const imgElement = document.createElement('img');
+    imgElement.src = randomWeapon;
+    imgElement.alt = 'Character Weapon';
+    
+    // Clear the container and append the new image
+    WeaponContainer.innerHTML = '';
+    WeaponContainer.appendChild(imgElement);
+    
+    // Display the weapon name (optional)
+    const weaponName = randomWeapon.split('/').pop().replace('.png', '');
+    
+    if (WeaponContainer.nextElementSibling && WeaponContainer.nextElementSibling.id === 'WeaponName') {
+        WeaponContainer.nextElementSibling.textContent = weaponName;
+    }
+}
+
+// Function to manually select a weapon for the current character
+function selectSpecificWeapon(weaponIndex) {
+    if (!currentCharacter) {
+        console.log('No character selected');
+        return;
+    }
+    
+    const weaponsList = characterWeapons[currentCharacter];
+    
+    if (!weaponsList || weaponsList.length === 0) {
+        console.log('No weapons defined for current character');
+        return;
+    }
+    
+    // Ensure index is within bounds
+    weaponIndex = Math.min(Math.max(0, weaponIndex), weaponsList.length - 1);
+    
+    const selectedWeapon = weaponsList[weaponIndex];
+    
+    // Get the weapon container element
+    const WeaponContainer = document.getElementById('WeaponContainer');
+    
+    if (!WeaponContainer) {
+        console.log('Weapon container not found');
+        return;
+    }
+    
+    // Create an image element
+    const imgElement = document.createElement('img');
+    imgElement.src = selectedWeapon;
+    imgElement.alt = 'Character Weapon';
+    
+    // Clear the container and append the new image
+    WeaponContainer.innerHTML = '';
+    WeaponContainer.appendChild(imgElement);
+    
+    // Display the weapon name (optional)
+    const weaponName = selectedWeapon.split('/').pop().replace('.png', '');
+    
+    if (WeaponContainer.nextElementSibling && WeaponContainer.nextElementSibling.id === 'WeaponName') {
+        WeaponContainer.nextElementSibling.textContent = weaponName;
+    }
+}
+
+
+
+
 // Array of image URLs
 const charPool = [
             'Minis/Abigail.png',
@@ -97,17 +275,58 @@ const charPool = [
             'Minis/Zahir.png',
         ];
 
+// Modified RandChar function that also selects a weapon
+function RandChar() {
+    // Get a random index from the charPool array
+    const randomIndex = Math.floor(Math.random() * charPool.length);
+
+    // Get the image URL using the random index
+    const randomImageUrl = charPool[randomIndex];
+    
+    // Save current character
+    currentCharacter = randomImageUrl;
+
+    // Get the image container element
+    const CharContainer = document.getElementById('CharContainer');
+
+    // Create an image element
+    const imgElement = document.createElement('img');
+    imgElement.src = randomImageUrl;
+    imgElement.alt = 'Random Character';
+
+    // Clear the container and append the new image
+    CharContainer.innerHTML = '';
+    CharContainer.appendChild(imgElement);
+    
+    // Select a weapon for this character
+    selectWeaponForCharacter(randomImageUrl);
+}
+
+const TacSkillPool = [
+            'TacSkill/09. The Strijder.png',
+            'TacSkill/06. Totem.png',
+            'TacSkill/07. Nullification.png',
+            'TacSkill/12. Healing Wind.png',
+            'TacSkill/01. Blink.png',
+            'TacSkill/02. Quake.png',
+            'TacSkill/03. Protocol Violation.png',
+            'TacSkill/05. Force Field.png',
+            'TacSkill/EShift.png',
+            'TacSkill/08. Soul Stealer.png',
+            'TacSkill/10. Blade of Truth.png',
+            'TacSkill/11. False Oath.png'
+]
         // Function displays a random character when called
-        function RandChar() {
+        function RandSkill() {
 
             // Get a random index from the imagePool array
-            const randomIndex = Math.floor(Math.random() * charPool.length);
+            const randomIndex = Math.floor(Math.random() * TacSkillPool.length);
 
             // Get the image URL using the random index
-            const randomImageUrl = charPool[randomIndex];
+            const randomImageUrl = TacSkillPool[randomIndex];
 
             // Get the image container element
-            const CharContainer = document.getElementById('CharContainer');
+            const TacContainer = document.getElementById('TacContainer');
 
             // Create an image element
             const imgElement = document.createElement('img');
@@ -115,8 +334,8 @@ const charPool = [
             imgElement.alt = 'Random Image';
 
             // Clear the container and append the new image
-            CharContainer.innerHTML = '';
-            CharContainer.appendChild(imgElement);
+            TacContainer.innerHTML = '';
+            TacContainer.appendChild(imgElement);
         }
 
 const PurpChestPool = [
@@ -302,12 +521,7 @@ const OrangeChestPool = [
             'ItemsImgs/02. Armor/01. Chest/050. Ghost Bride_s Dress.png',
             'ItemsImgs/02. Armor/01. Chest/051. Ghillie Suit.png',
             'ItemsImgs/02. Armor/01. Chest/052. Spectral Jacket.png',
-            'ItemsImgs/02. Armor/01. Chest/054. Inquisitor.png',
-            'ItemsImgs/02. Armor/01. Chest/9999. Couturier.png',
-            'ItemsImgs/02. Armor/01. Chest/9998. Áo Dài.png',
-            'ItemsImgs/02. Armor/01. Chest/9997. Phantom Jacket_팬텀자켓.png',
-            'ItemsImgs/02. Armor/01. Chest/9996. Mithril Crop.png',
-            'ItemsImgs/02. Armor/01. Chest/053. Wisdom Robes.png'
+            'ItemsImgs/02. Armor/01. Chest/054. Inquisitor.png'
         ];
 
         // Function displays a random character when called
@@ -504,11 +718,13 @@ const OrangeLegPool = [
 
 <div>
 
-<button onclick="RandChar(), RandChest1(), RandChest2(), RandArm1(), RandLeg1(), RandHead1(), RandArm2(), RandLeg2(), RandHead2()"> Click Me </button>
+should the homepage be basic as hell with just a button?
+<button onclick="RandChar(), RandChest1(), RandChest2(), RandArm1(), RandLeg1(), RandHead1(), RandArm2(), RandLeg2(), RandHead2(), RandSkill()"> Click Me </button>
 
 <section class="Results">
     <div id="CharContainer" class="CharResult"></div>
     <aside class="PurpleResult">
+        <a class="item" id="WeaponContainer"></a>
         <a class="item" id="PurpleChestContainer"></a>
         <a class="item" id="PurpleArmContainer"></a>
         <a class="item" id="PurpleHeadContainer"></a>
@@ -519,6 +735,10 @@ const OrangeLegPool = [
         <a class="item" id="OrangeArmContainer"></a>
         <a class="item" id="OrangeLegContainer"></a>
         <a class="item" id="OrangeHeadContainer"></a>
+    </aside>
+    <aside class="OtherResult">
+        <a id="TacContainer"></a>
+        <!-- <a class = "item" id="Augments"></a> -->
     </aside>
 </section>
 
